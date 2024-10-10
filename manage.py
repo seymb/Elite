@@ -2,6 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from django.db import models
 
 
 def main():
@@ -17,6 +18,9 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
+class Product(models.Model):
+    def __str__(self):
+        return self.name
 
 if __name__ == '__main__':
     main()
