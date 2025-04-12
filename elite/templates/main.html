@@ -4,47 +4,66 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
         <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-        <link rel="icon" href="{% static 'Photo/Eliteporfume.ico' %}">
-        <title>Elitepefrume Atyrau</title>
+        <!-- Prata стиль текста -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+        <!-- Poppins стиль текста -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap" rel="stylesheet">
+
+        <title>Elite</title>
     </head>
 
     <body>
         <header>
-            <a href="https://youtube.com">
-                <h2><img src="{% static 'Photo/Logo.png' %}">
-                Elitepefrume Atyrau</h2>
-            </a>
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <h1>Elite</h1>
+                </a>
+            </div>
+            <div class="navbar">
+                <a href="{% url 'men' %}">Для мужчин</a>
+                <a href="#">Для женщин
+                <a href="#">Для дома</a>
+                <a href="{% url 'Авторизация' %}"><button>Sign up</button></a>
+            </div>
         </header>
-        <div class="navbar">
-            <ul>
-                <li><a href="{% url 'men' %}">Мужская парфюмерия</a></li>
-                <li><a href="#">Женская парфюмерия</li>
-                <li><a href="#">Ароматизированные свечи</a></li>
-                <li><a href="#">Парфюмированные диффузоры</a></li>
-                <li><a href="#">Диффузоры Ареон</a></li>
-            </ul>
-        </div>
-        <div class="gender">
-            <div class="male">
-                <img src="{% static 'Photo/male.png' %}">
-                <h3>Мужская парфюмерия</h3>
-            </div>
-            <div class="female">
-                <img src="{% static 'Photo/image female.png' %}">
-                <h3>Женская парфюмерия</h3>
+        <div class="content">
+            <div class="hero-section">
+                <img src="{% static '\Photo\banner\left.jpg'%}" alt="">
+                <div class="girls">
+                    <img src="{% static '\Photo\banner\top.jpg'%}" alt="">
+                    <div class="girls-text">
+                        <h1>ULTIMATE</h1>
+                        <h2>SALE</h2>
+                        <h3>NEW COLLECTION</h3>
+                        <a href=""><button>SHOP NOW</button></a>
+                    </div>
+                    <img src="{% static '\Photo\banner\bot.jpg'%}" alt="">
+                </div>
+                <img src="{% static '\Photo\banner\right.jpg'%}" alt="">
             </div>
         </div>
-        <div class="ender">
-            <h2>О компании</h2>
-            <h2>Адрес магазина</h2>
-            <div class="contacts">
-                <h2>Контакты</h2>
-                <img src="{% static 'Photo/bxl-whatsapp.svg' %}">
-                <img src="{% static 'Photo/bxl-instagram.svg' %}"> 
+        <footer>
+            <div class="logo">
+                <a href="https://youtube.com">
+                    <h1>Elite</h1>
+                </a>
             </div>
-        </div>
+            <div class="footer-right">
+                <a href="">Support Center</a>
+                <a href="">Invoicing</a>
+                <a href="">Contract</a>
+                <a href="">Careers</a>
+                <a href="">Blog</a>
+                <a href="">FAQ,s</a>
+            </div>
+        </footer>
     </body>
 </html>
