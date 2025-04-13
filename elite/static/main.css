@@ -119,6 +119,14 @@ header{
     background-color: rgba(0, 0, 0, 0.74);
     cursor: pointer;
 }
+
+/* Logo */
+
+.logos{
+    display: flex;
+    gap: 10px;
+}
+
 /* FOOTER */
 
 footer{
