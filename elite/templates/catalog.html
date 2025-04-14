@@ -5,71 +5,295 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
-        <link rel="stylesheet" type = text/css href="{% static 'women_perf.css' %}">
+        <link rel="stylesheet" type = text/css href="{% static 'catalog.css' %}">
         <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
         <link rel="icon" href="{% static 'Photo/Eliteporfume.ico' %}">
-        <title>Elitepefrume Atyrau</title>
+        <!-- Prata стиль текста -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+        <!-- Poppins стиль текста -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap" rel="stylesheet">
+
+        <title>Elite</title>
     </head>
     <body>
         <header>
-            <a href="https://youtube.com">
-                <h2><img src="{% static 'Photo/Logo.png' %}">
-                Elitepefrume Atyrau</h2>
-            </a>
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <h1>Elite</h1>
+                </a>
+            </div>
+            <div class="navbar">
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'men' %}">Shop</a>
+                <a href="#">Products</a>
+                <ul>
+                    <a href="#">Pages</a>
+                </ul>
+            </div>
+            <a href="{% url 'Авторизация' %}"><button>Sign up</button></a>
         </header>
-        <div class="navbar">
-            <ul>
-                <li><a href="{% url 'men' %}">Мужская парфюмерия</a></li>
-                <li><a href="#">Женская парфюмерия</li>
-                <li><a href="#">Ароматизированные свечи</a></li>
-                <li><a href="#">Парфюмированные диффузоры</a></li>
-                <li><a href="#">Диффузоры Ареон</a></li>
-            </ul>
-        </div>
-        <div class="gender">
-            <div class="male">
-                <img src="{% static 'Photo/male.png' %}">
-                <h3>Мужская парфюмерия</h3>
+        <div class="navigation">
+            <div class="page-title">
+                <h1>Fashion</h1>
             </div>
-            <div class="female">
-                <img src="{% static 'Photo/image female.png' %}">
-                <h3>Женская парфюмерия</h3>
+            <div class="bread-crumbs">
+                <h4>Home</h4>
+                <h4>></h4>
+                <h4>Fashion</h4>
             </div>
         </div>
-        <div class="filter">
-            <div class="filter1">
-                <h3>Фильтр</h3>
+        <div class="content">
+            <div class="sidebar">
+                <h3>Filters</h3>
+                <h4>Size</h4>
+                <div class="size">
+                    <div class="size-box">
+                        <h4>S</h4>
+                    </div>
+                    <div class="size-box">
+                        <h4>M</h4>
+                    </div>
+                    <div class="size-box">
+                        <h4>L</h4>
+                    </div>
+                    <div class="size-box">
+                        <h4>XL</h4>
+                    </div>
+                </div>
+                <h4>Colors</h4>
+                <div class="colors">
+                    <div class="color" style="background-color: #FF6C6C;"></div>
+                    <div class="color" style="background-color: #FF7629;"></div>
+                    <div class="color" style="background-color: #FF7629;"></div>
+                    <div class="color" style="background-color: #9BFF6C;"></div>
+                    <div class="color" style="background-color: #6CFF9E;"></div>
+                    <div class="color" style="background-color: #6CFFDC;"></div>
+                    <div class="color" style="background-color: #6CB9FF;"></div>
+                    <div class="color" style="background-color: #6CF6FF;"></div>
+                    <div class="color" style="background-color: #6CA7FF;"></div>
+                    <div class="color" style="background-color: #6C7BFF;"></div>
+                    <div class="color" style="background-color: #8A6CFF;"></div>
+                    <div class="color" style="background-color: #B66CFF;"></div>
+                    <div class="color" style="background-color: #FC6CFF;"></div>
+                    <div class="color" style="background-color: #FF6C6C;"></div>
+                </div>
+                <h4>Prices</h4>
+                <div class="prices">
+                    <h4>$0-$50</h4>
+                    <h4>$50-$100</h4>
+                    <h4>$100-$150</h4>
+                    <h4>$150-$200</h4>
+                    <h4>$300-$400</h4>
+                </div>
+                <h4>Brands</h4>
+                <div class="brands">
+                    <h4>Minimog</h4>
+                    <h4>Retrolie</h4>
+                    <h4>Brook</h4>
+                    <h4>Learts</h4>
+                    <h4>Vagabond</h4>
+                    <h4>Abby</h4>
+                </div>
+                <h4>Collections</h4>
+                <div class="collections">
+                    <h4>All products</h4>
+                    <h4>Best sellers</h4>
+                    <h4>New arrivals</h4>
+                    <h4>Accessories</h4>
+                </div>
+                <h4>Tags</h4>
+                <div class="tags">
+                    <h4>Fashion</h4>
+                    <h4>Hats</h4>
+                    <h4>Sandal</h4>
+                    <h4>Belt</h4>
+                    <h4>Bags</h4>
+                    <h4>Snacker</h4>
+                    <h4>Denim</h4>
+                    <h4>Minimog</h4>
+                    <h4>Vagabond</h4>
+                    <h4>Sunglasses</h4>
+                    <h4>Beachwear</h4>
+                </div>
             </div>
-            <div class="popular-price">
-                <h3>Популярное</h3>
-                <h3>Цена</h3>
+            <div class="products">
+                <h4>Best selling</h4>
+                <div class="product">
+                    <!-- 1 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                    <!-- 6 -->
+                    <div class="product-cart">
+                        <img src="{% static 'Photo\products\images.jpg' %}" alt="">
+                        <div class="cart-first">
+                            <div class="product-name">
+                                <h3>Shiny Dress</h3>
+                                <h4>Al Karam</h4>
+                            </div>
+                            <div class="rating">
+                                <img src="{% static 'Photo\rating\Vector.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-1.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-2.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-3.png' %}" alt="">
+                                <img src="{% static 'Photo\rating\Vector-4.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="cart-second">
+                            <h4>(4.1k) Customer Reviews</h4>
+                        </div>
+                        <div class="cart-third">
+                            <div class="price">
+                                <h3>$95.50</h3>
+                            </div>
+                            <h4>Almost Sold Out</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="product_page">
-            
-        </div>
-        <div class="ender">
-            <h2>О компании</h2>
-            <h2>Адрес магазина</h2>
-            <div class="contacts">
-                <h2>Контакты</h2>
-                <img src="{% static 'Photo/bxl-whatsapp.svg' %}">
-                <img src="{% static 'Photo/bxl-instagram.svg' %}"> 
+        <footer>
+            <div class="logo">
+                <h1>Elite</h1>
             </div>
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var productLinks = document.querySelectorAll('.product-link');
-
-                productLinks.forEach(function (link) {
-                    link.addEventListener('click', function (event) {
-                        event.preventDefault();
-
-                        var productID = this.dataset.productid; // изменено на dataset.productid
-                        window.location.href = "/product_details/" + productID;
-                    });
-                });
-            });
-        </script>
+            <div class="footer-right">
+                <a href="">Support Center</a>
+                <a href="">Invoicing</a>
+                <a href="">Contract</a>
+                <a href="">Careers</a>
+                <a href="">Blog</a>
+                <a href="">FAQ,s</a>
+            </div>
+        </footer>
     </body>
 </html>
