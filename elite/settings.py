@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'elite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'mssql',
-#         'NAME': 'Elite',
-#         'HOST': 'localhost\SQLEXPRESS',
-#         'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server',
-#                     'extra_params': 'TrustServerCertificate=yes'
-#         },
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'mssql',
+        'NAME': 'Elite',
+        'HOST': 'localhost\SQLEXPRESS',
+        'OPTIONS': {'driver': 'ODBC Driver 17 for SQL Server',
+                    'extra_params': 'TrustServerCertificate=yes'
+        },
+    }
+}
 
 
 # Password validation
