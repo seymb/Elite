@@ -1,54 +1,337 @@
-@import url("/static/style.css");
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #484848;
+    max-width: 1920px;
+    /* width: 100vw; */
+}
+
+h1, h2, h3{
+    font-family: "Prata", sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 35px 160px;
+    font-size: 16px;
+    background-color: #F5F5F5;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* HEADER */    
+
+header{
+    display: flex;
+    /* background-color: aqua; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+header button{
+    padding: 10px 40px;
+    background-color: black;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+header button:hover{
+    background-color: rgba(0, 0, 0, 0.74);
+    cursor: pointer;
+}
+
+/* BODY */
+
+.content{
+    display: flex;
+    width: 100%;
+    gap: 20px; /* Чтобы между элементами content были отступы */
+}
+
+.content h3{
+    font-size: 25px;
+    font-weight: 500;
+    color: black;
+}
+
+.content h4{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+/* Product Detail */
+.product-detail{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    height: 30%;
+    width: 100%;
+}
 
 
-.product{
+
+/* Media */
+
+.media{
+    display: flex;
+    /* flex-wrap: wrap; */
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
+.media-nav{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100%;
+}
+
+
+.media-container{
+    height: 80%;
+}
+
+.media-container img{
+    height: 80%;
+}
+
+/* Detail */
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+
+.detail h4{
+    font-weight: 400;
+    color: #666666;
+    font-family: 'Prata', sans-serif;
+}
+
+.detail-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 50px 80px;
 }
 
-.product_img img{
-    height: 75%;
-    width: 75%;
+.detail-title h2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: black;
 }
 
-.product_details h5{
-    text-align: start;
-    padding: 10px 5px;
-    color: #7f7f7f;
+.title-star{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-.product_details_name{
-    border-bottom: 0.3px solid #7F7F7F;
+.title-star span{
+    /* color: yellow; */
+    font-size: 25px;
 }
 
-.char{
+/* Rating */
+
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.star{
+    display: flex;
+}
+
+.rating h5{
+    padding-top: 1px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.rating span{
+    color: black;
+}
+
+/* Price */
+
+.price{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.price h3{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: black;
+}
+
+.price h4{
+    font-family: 'Poppins', sans-serif;
+    text-decoration: line-through;
+    font-weight: 400;
+    color: #666666;
+}
+.discount{
+    padding: 2px 15px;
+    border-radius: 20px;
+    background-color: #DA3F3F;
+    align-items: center;
+    justify-content: center;
+}
+.discount h5{
+    font-weight: 500;
+    font-size: 11px;
+    color: white;
+}
+
+/* Size */
+
+.size, .colors, .quantity{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.size-title, .color-title, .quantity-title{
+    display: flex;
+    gap: 5px;
+}
+
+.size-title h4, .color-title h4, .quantity-title h4{
+    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.size-body, .color-body{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.size-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #8A8A8A;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 42px;
+    height: 42px;
+    transition: background-color 0.3s;
+}
+.size-box h4{
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+.size-box:hover{
+    background-color: black;
+}
+.size-box:hover h4{
+    color: white;
+}
+
+/* Color */
+.color{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.color:hover{
+    padding: 5px;
+    background-color: #F5F5F5;
+    border-radius: 1px solid #8A8A8A;
+    transform: scale(1.1);
+}
+
+/* Quantity */
+.quantity{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.quantity-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.count{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    padding: 5px 0;
+    border: 1px solid #8A8A8A;
+    border-radius: 5px;
+}
+
+.quantity h4{
+    color: black;
+}
+
+.add-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 5px 0;
+    border-radius: 5px;
+    width: 70%;
+}
+
+/* FOOTER */
+footer{
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    align-items: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid black;
 }
 
-.char h3{
-    padding: 5px;
+.footer-right{
+    display: flex;
+    gap: 40px;
 }
 
-.descript{
-    display: block;
-    width: 433px;
-    height: 132px;
-    overflow: hidden;
-}
-
-.descript h3{
-    text-align: start;
-}
-
-.descript .text-preview {
-    display: inline-block; /* Делаем span блоковым элементом, чтобы можно было применить отступ */
-    text-indent: 20px; /* Желаемый отступ */
-}
-
-.about-product{
-    padding: 100px 20px;
+.footer-right a{
+    /* font-family: "Poppins", sans-serif; */
+    font-size: 16px;
+    font-weight: 400;
 }

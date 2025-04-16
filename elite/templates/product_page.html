@@ -1,81 +1,144 @@
 <!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type = text/css href="{% static 'product_page.css' %}">
+    <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
+    <link rel="icon" href="{% static 'Photo/Eliteporfume.ico' %}">
+    <!-- Prata стиль текста -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <!-- Poppins стиль текста -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href="/static/product_page.css">
-        <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-        <link rel="icon" href="/static/Photo/Eliteporfume.ico">
-        <title>Admin Elitepefrume Atyrau</title>
-    </head>
-    <body>
-        <header>
-            <a href="https://www.youtube.com/watch?v=QgOXIEhHU1Y&ab_channel=Diplo">
-                <h2><img src="/static/Photo/Logo.png">
-                Elitepefrume Atyrau</h2>
+    <title>Elite</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <h1>Elite</h1>
             </a>
-        </header>
+        </div>
         <div class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'catalog' %}">Shop</a>
+            <a href="#">Products</a>
             <ul>
-                <li><a href="">Мужская парфюмерия</a></li>
-                <li><a href="">Женская парфюмерия</a></li>
-                <li><a href="">Ароматизированные свечи</a></li>
-                <li><a href="">Парфюмированные диффузоры</a></li>
-                <li><a href="">Диффузоры Ареон</a></li>
+                <a href="#">Pages</a>
             </ul>
         </div>
-        <div class="product">
-            <div class="product_img">
-                <img src="{{ url_for('get_image', product_id=product['ID']) }}">
-            </div>
-            <div class="product_details">
-                <div class="product_details_name">
-                    <h1>{{ product['ProductName'] }}</h1>
-                    <h5>Код товара: {{ product['Article'] }}</h5>
+        <a href="{% url 'Авторизация' %}"><button>Sign up</button></a>
+    </header>
+    <div class="content">
+        <div class="product-detail">
+            <div class="media">
+                <div class="media-nav">
+                    <img src="{% static 'Photo\media-nav\1.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\2.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\3.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\4.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\5.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\6.jpg' %}" alt="">
+                    <img src="{% static 'Photo\media-nav\7.jpg' %}" alt="">
                 </div>
-                <div class="char">
-                    <div class="volume">
-                        <h3>Объем</h3>
-                        <h3>{{ product['Volume'] }} мл</h3>
-                        <h3>10 мл</h3>
-                        <h3>30 мл</h3>
-                        <h3>50 мл</h3>
-                        <h3>100 мл</h3>
+                <div class="media-container">
+                    <img src="{% static 'Photo\media-nav\main.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="detail">
+                <div class="detail-box">
+                    <h4>Elite</h4>
+                    <div class="detail-title">
+                        <h2>Denim Jacket</h2>
+                        <div class="title-star">
+                            <span class="star-title">&#9734</span>
+                        </div>
                     </div>
-                    <div class="price">
-                        <h3>Цена</h3>
-                        <h3>{{ product['Price'] }} Р</h3>
-                        <h3>{{ product['Price10'] }} Р</h3>
-                        <h3>{{ product['Price30'] }} Р</h3>
-                        <h3>{{ product['Price50'] }} Р</h3>
-                        <h3>{{ product['Price100'] }} Р</h3>
+                    <div class="rating">
+                        <div class="star">
+                            <span class="star">&#9733</span>
+                            <span class="star">&#9733</span>
+                            <span class="star">&#9733</span>
+                            <span class="star">&#9733</span>
+                            <span class="star">&#9733</span>
+                        </div>
+                        <h5>(3)</h5>
                     </div>
                 </div>
-                <div class="descript">
-                    <h3 class="text-preview">{{ product['Descript'] }}</h3>
+                <div class="price">
+                    <h3>$39.00</h3>
+                    <h4>$59.00</h4>
+                    <div class="discount">
+                        <h5>SAVE 33%</h5>
+                    </div>
+                </div>
+                <div class="size">
+                    <div class="size-title">
+                        <h4 style="font-weight: 600;">Size:</h4>
+                        <h4>M</h4>
+                    </div>
+                    <div class="size-body">
+                        <div class="size-box">
+                            <h4>S</h4>
+                        </div>
+                        <div class="size-box">
+                            <h4>M</h4>
+                        </div>
+                        <div class="size-box">
+                            <h4>L</h4>
+                        </div>
+                        <div class="size-box">
+                            <h4>XL</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="colors">
+                    <div class="color-title">
+                        <h4 style="font-weight: 600;">Color:</h4>
+                        <h4>Blue</h4>
+                    </div>
+                    <div class="color-body">
+                        <div class="color" style="background-color: #6CF6FF;"></div>
+                        <div class="color" style="background-color: #000;"></div>
+                        <div class="color" style="background-color: #FF6C6C;"></div>
+                    </div>
+                </div>
+                <div class="quantity-box">
+                    <div class="quantity-title">
+                        <h4 style="font-weight: 500;">Quantity</h4>
+                    </div>
+                    <div class="quantity">
+                        <div class="count">
+                            <h4>-</h4>
+                            <h4>1</h4>
+                            <h4>+</h4>
+                        </div>
+                        <div class="add-cart">
+                            <h4>Add to cart</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="about-product">
-            <h1>О товаре</h1>
-            <h4>Производство: {{ product['Production'] }}</h4>
-            <h4>Торговый дом: {{ product['TradingHouse'] }}</h4>
-            <h4>Год создания: {{ product['DateofCreation'] }}</h4>
-            <h4>Назначение: {{ product['Assignment'] }}</h4>
-            <h4>Тип: {{ product['ProductType'] }}</h4>
-            <h4>Ноты аромата: {{ product['FlavorNotes'] }}</h4>
+    </div>
+    <footer>
+        <div class="logo">
+            <h1>Elite</h1>
         </div>
-        <div class="ender">
-            <h2>О компании</h2>
-            <h2>Адрес магазина</h2>
-            <div class="contacts">
-                <h2>Контакты</h2>
-                <img src="/static/Photo/bxl-whatsapp.svg">
-                <a href="https://www.youtube.com/watch?v=QgOXIEhHU1Y&ab_channel=Diplo">
-                    <img src="/static/Photo/bxl-instagram.svg">
-                </a>
-            </div>
+        <div class="footer-right">
+            <a href="">Support Center</a>
+            <a href="">Invoicing</a>
+            <a href="">Contract</a>
+            <a href="">Careers</a>
+            <a href="">Blog</a>
+            <a href="">FAQ,s</a>
         </div>
-    </body>
+    </footer>
+</body>
 </html>

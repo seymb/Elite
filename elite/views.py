@@ -9,3 +9,6 @@ def catalog(request):
 
 def auth(request):
     return render(request, 'auth.html')
+
+def product(request):
+    return render(request, 'product_page.html')
