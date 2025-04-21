@@ -81,7 +81,7 @@ header button:hover{
     flex-direction: row;
     justify-content: space-between;
     gap: 10px;
-    height: 30%;
+    height: 100%;
     width: 100%;
 }
 
@@ -91,26 +91,40 @@ header button:hover{
 
 .media{
     display: flex;
+    flex-direction: row;
     /* flex-wrap: wrap; */
+    align-items: center;  
+    gap: 20px;
     height: 100%;
     width: 100%;
-    gap: 10px;
 }
 
 .media-nav{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 20px;
     height: 100%;
 }
 
+.media-nav img{
+    width: 58px;
+    height: 78px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
+}
 
 .media-container{
-    height: 80%;
+    height: 100%;
+    width: 80%;
 }
 
 .media-container img{
-    height: 80%;
+    cursor: pointer;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Detail */
@@ -315,6 +329,13 @@ header button:hover{
     border-radius: 5px;
     width: 70%;
     cursor: pointer;
+}
+
+/* Description */
+.description h4{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: black;
 }
 
 /* FOOTER */

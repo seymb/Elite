@@ -39,13 +39,18 @@
         <div class="product-detail">
             <div class="media">
                 <div class="media-nav">
-                    <img src="{% static 'Photo\media-nav\1.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\2.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\3.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\4.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\5.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\6.jpg' %}" alt="">
-                    <img src="{% static 'Photo\media-nav\7.jpg' %}" alt="">
+                    <div class="media-nav-img">
+                        <img src="{% static 'Photo\media-nav\1.jpg' %}" alt="">
+                    </div>
+                    <div class="media-nav-img">
+                        <img src="{% static 'Photo\media-nav\2.jpg' %}" alt="">
+                    </div>
+                    <div class="media-nav-img">
+                        <img src="{% static 'Photo\media-nav\3.jpg' %}" alt="">
+                    </div>
+                    <div class="media-nav-img">
+                        <img src="{% static 'Photo\media-nav\4.jpg' %}" alt="">
+                    </div>
                 </div>
                 <div class="media-container">
                     <img src="{% static 'Photo\media-nav\main.jpg' %}" alt="">
@@ -126,6 +131,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="description">
+        <h4>Description</h4>
+        <p>Такой подход позволит элементу .rating выровняться по вертикали на одной линии с заголовком ''.
+            Если хочешь — можем доработать стили звёздочек или добавить адаптивность.</p>
     </div>
     <footer>
         <div class="logo">

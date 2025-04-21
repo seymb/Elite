@@ -21,8 +21,8 @@ from elite import  views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
-    path('catalog', views.catalog, name='catalog'),
+    path('catalog/', views.catalog_view, name='catalog'),
+    path('catalog/<str:category>/', views.catalog_view, name='catalog'),
     path('auth', views.auth, name='Авторизация'),
-    path('product', views.product, name='product-page')
-    
+    path('product', views.product, name='product-page'),
 ]
