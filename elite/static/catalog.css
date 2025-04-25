@@ -87,7 +87,7 @@ header button:hover{
     width: 100%;
     flex-direction: row;
     /* align-items: center; */
-    gap: 20px; /* Чтобы между элементами content были отступы */
+    gap: 10px; /* Чтобы между элементами content были отступы */
 }
 
 .content h3{
@@ -108,7 +108,7 @@ header button:hover{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 35%;
+    width: 20%;
 }
 
 /* Size */
@@ -217,6 +217,15 @@ header button:hover{
 }
 
 /* PRODUCTS */
+.products{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px
+}
+
 .product{
     display: flex;
     flex-direction: row;
@@ -229,6 +238,7 @@ header button:hover{
     display: flex;
     flex-direction: column;
     width: 30%;
+    min-width: 235px;
     background-color: white;
     margin: 20px 10px;
     gap: 20px;
@@ -267,6 +277,7 @@ header button:hover{
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+    gap: 10px;
 }
 
 .rating{
@@ -308,6 +319,32 @@ header button:hover{
 
 .cart-third h4{
     color: #FF4646;
+}
+
+/* Pagination */
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.pages{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.current_page{
+    border: 1px solid black;
+    padding: 10px 10px;
+    border-radius: 50%;
+}
+
+.previous-page, .next-page{
+    font-size: 20px;
 }
 
 /* FOOTER */

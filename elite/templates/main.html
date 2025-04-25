@@ -31,7 +31,11 @@
                 <a href="{% url 'catalog' 'Men' %}">Для мужчин</a>
                 <a href="{% url 'catalog' 'Women' %}">Для женщин
                 <a href="{% url 'product-page' %}">Для дома</a>
-                <a href="{% url 'Авторизация' %}"><button>Sign up</button></a>
+                {% if user.is_authenticated %}
+                    <h3>Sign in</h3>
+                {% else %}
+                    <a href="{% url 'register' %}"><button>Sign up</button></a>
+                {% endif %}
             </div>
         </header>
         <div class="content">

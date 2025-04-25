@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('catalog/', views.catalog_view, name='catalog'),
     path('catalog/<str:category>/', views.catalog_view, name='catalog'),
-    path('auth', views.auth, name='Авторизация'),
+    path('register/', views.register_view, name='register'),
+    path('login/', views.login_view, name='login'),
     path('product', views.product, name='product-page'),
 ]

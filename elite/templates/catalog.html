@@ -34,7 +34,11 @@
                     <a href="#">Pages</a>
                 </ul>
             </div>
-            <a href="{% url 'Авторизация' %}"><button>Sign up</button></a>
+            {% if user.is_authenticated %}
+                <h3>Sign in</h3>
+            {% else %}
+                <a href="{% url 'register' %}"><button>Sign up</button></a>
+            {% endif %}
         </header>
         <div class="navigation">
             <div class="page-title">
@@ -149,7 +153,7 @@
                                     </div>
                                     <div class="cart-third">
                                         <div class="price">
-                                            <h3>{{ product.price }}</h3>
+                                            <h3>{{ product.price_obj }} ₽</h3>
                                         </div>
                                         {% if product.stock < 10 %}
                                             <h4>Almost Sold Out</h4>
@@ -159,6 +163,33 @@
                             </div>
                         {% endfor %}
                     {% endif %}
+                </div>
+                <div class="pagination">
+                    <div class="previous">
+                        {% if page_obj.has_previous %}
+                            <a href="?page={{ page_obj.previous_page_number }}" class="previous-page"><</a>  <!-- Стрелка на предыдущую страницу -->
+                        {% else %}
+                            <span class="previous-page disabled"><</span> <!-- Стрелка "Предыдущая" неактивна на первой странице -->
+                        {% endif %}
+                    </div>
+                
+                    <div class="pages">
+                        {% for num in page_obj.paginator.page_range %}
+                            {% if num == page_obj.number %}
+                                <span class="current-page" style="font-weight: 600;">{{ num }}</span>  <!-- Отображение текущей страницы -->
+                            {% elif num >= page_obj.number|add:"-3" and num <= page_obj.number|add:"3" %}
+                                <a href="?page={{ num }}" class="page-number">{{ num }}</a>  <!-- Ссылки на соседние страницы -->
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="next">
+                        {% if page_obj.has_next %}
+                            <a href="?page={{ page_obj.next_page_number }}" class="next-page">></a> <!-- Стрелка на следующую страницу -->
+                        {% else %}
+                            <span class="next-page disabled">></span> <!-- Стрелка "Следующая" неактивна на последней странице -->
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
