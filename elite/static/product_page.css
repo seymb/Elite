@@ -29,9 +29,9 @@ a{
 
 header{
     display: flex;
-    /* background-color: aqua; */
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
 }
 
 .navbar{
@@ -59,6 +59,7 @@ header button:hover{
 
 .content{
     display: flex;
+    flex-direction: column;
     width: 100%;
     gap: 20px; /* Чтобы между элементами content были отступы */
 }
@@ -80,7 +81,7 @@ header button:hover{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 10px;
+    gap: 30px;
     height: 100%;
     width: 100%;
 }
@@ -92,11 +93,10 @@ header button:hover{
 .media{
     display: flex;
     flex-direction: row;
-    /* flex-wrap: wrap; */
     align-items: center;  
     gap: 20px;
     height: 100%;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .media-nav{
@@ -116,15 +116,23 @@ header button:hover{
 }
 
 .media-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    width: 80%;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 400px;
+    min-width: 300px;
+    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 .media-container img{
     cursor: pointer;
-    border-radius: 10px;
+    max-height: 400px;
+    max-width: 300px;
     object-fit: contain;
-    box-shadow: 2px 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Detail */
@@ -202,10 +210,10 @@ header button:hover{
     gap: 10px;
 }
 
-
 .price h3{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
+    font-size: 20px;
     color: black;
 }
 
@@ -336,6 +344,12 @@ header button:hover{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
     color: black;
+}
+
+.description p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-indent: 30px;
 }
 
 /* FOOTER */

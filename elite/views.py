@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Product, Category
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator
 
 
 # Пример представления для главной страницы
@@ -19,7 +20,11 @@ def catalog_view(request, category=None):
     else:
         products = Product.objects.all()  # все товары, если категории нет
 
-    return render(request, 'catalog.html', {'products': products})
+    paginator = Paginator(products, 9)  # 9 товаров на странице
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'catalog.html', {'page_obj': page_obj})
 
 def register_view(request):
     if request.method == 'POST':
@@ -54,5 +59,32 @@ def login_view(request):
 
     return render(request, 'auth.html')
 
-def product(request):
-    return render(request, 'product_page.html')
+def logout_view(request):
+    logout(request)
+    return redirect('home')
+
+def is_integer(value):
+    return value % 1 == 0
+
+def product(request, id=None):
+    new_prices = []
+    if id:
+        prod = get_object_or_404(Product, id=id)
+        prices = prod.prices.all()
+        for price in prices:
+            original_price = price.price
+
+            original_price = int(original_price) if is_integer(original_price) else original_price
+            price.discount = int(price.discount) if is_integer(price.discount) else price.discount
+            if price.discount:
+                new_price = original_price - (original_price * price.discount / 100)
+                new_price = int(new_price) if is_integer(new_price) else new_price
+                new_prices.append({'original_price': original_price, 'discount_price': new_price, 'volume': price.volume, 'discount': price.discount})
+            else:
+                new_prices.append({'original_price': original_price, 'discount_price': original_price, 'volume': price.volume, 'discount': 0})
+
+    else:
+        prod = None
+        price = None
+        new_prices = []
+    return render(request, 'product_page.html', {'product': prod, 'prices': new_prices, 'id':id})

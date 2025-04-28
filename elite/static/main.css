@@ -238,14 +238,13 @@ header{
     height: 216px;
     display: flex;
     justify-content: center;
+    object-fit: contain;
     align-items: center;
     border-radius: 8px;
 }
 
 .product_image img{
-    width: auto;
     height: 100%;
-    max-width: 100%;
 }
 
 .cart{
@@ -256,6 +255,9 @@ header{
 
 .product-cart:hover{
     cursor: pointer;
+    box-shadow:  0px 0px 8px 8px rgba(248, 160, 60, 0.119);
+    transition: 0.3s ease;
+    transform: scale(1.01);
 }
 
 

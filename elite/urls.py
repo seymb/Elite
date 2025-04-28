@@ -25,5 +25,7 @@ urlpatterns = [
     path('catalog/<str:category>/', views.catalog_view, name='catalog'),
     path('register/', views.register_view, name='register'),
     path('login/', views.login_view, name='login'),
-    path('product', views.product, name='product-page'),
+    path('logout/', views.logout_view, name='logout'),
+    path('product/', views.product, name='product-page'),
+    path('product/<int:id>/', views.product, name='product-page'),
 ]

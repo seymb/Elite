@@ -32,7 +32,7 @@
                 <a href="{% url 'catalog' 'Women' %}">Для женщин
                 <a href="{% url 'product-page' %}">Для дома</a>
                 {% if user.is_authenticated %}
-                    <h3>Sign in</h3>
+                    <h4>{{ request.user.username }}, <a href="{% url 'logout' %}">Logout</a></h4> 
                 {% else %}
                     <a href="{% url 'register' %}"><button>Sign up</button></a>
                 {% endif %}
@@ -82,36 +82,37 @@
                             {% for product in products %}
                                 <!-- 1 -->
                                 <div class="product-cart">
-                                    <div class="product_image">
-                                        {% load static %}
-                                        <img src="{% static 'media/' %}{{ product.category.name }}/{{ product.id }}/main.jpg" alt="{{ product.name }}">
-                                    </div>
-                                    <div class="cart">
-                                        <div class="cart-first">
-                                            <div class="product-name">
-                                                <h3>{{ product.name }}</h3>
-                                                <h4>{{ product.brand }}</h4>
+                                    <a href="{% url 'product-page' product.id %}">
+                                        <div class="product_image">
+                                            <img src="{% static 'media/' %}{{ product.category.name }}/{{ product.id }}/main.jpg" alt="{{ product.name }}">
+                                        </div>
+                                        <div class="cart">
+                                            <div class="cart-first">
+                                                <div class="product-name">
+                                                    <h3>{{ product.name }}</h3>
+                                                    <h4>{{ product.brand }}</h4>
+                                                </div>
+                                                <div class="rating">
+                                                    <span class="star">&#9733</span>
+                                                    <span class="star">&#9733</span>
+                                                    <span class="star">&#9733</span>
+                                                    <span class="star">&#9733</span>
+                                                    <span class="star">&#9733</span>
+                                                </div>
                                             </div>
-                                            <div class="rating">
-                                                <span class="star">&#9733</span>
-                                                <span class="star">&#9733</span>
-                                                <span class="star">&#9733</span>
-                                                <span class="star">&#9733</span>
-                                                <span class="star">&#9733</span>
+                                            <div class="cart-second">
+                                                <h4>(4.1k) Customer Reviews</h4>
+                                            </div>
+                                            <div class="cart-third">
+                                                <div class="price">
+                                                    <h3>{{ product.price }}</h3>
+                                                </div>
+                                                {% if product.stock < 10 %}
+                                                    <h4>Almost Sold Out</h4>
+                                                {% endif %}
                                             </div>
                                         </div>
-                                        <div class="cart-second">
-                                            <h4>(4.1k) Customer Reviews</h4>
-                                        </div>
-                                        <div class="cart-third">
-                                            <div class="price">
-                                                <h3>{{ product.price }}</h3>
-                                            </div>
-                                            {% if product.stock < 10 %}
-                                                <h4>Almost Sold Out</h4>
-                                            {% endif %}
-                                        </div>
-                                    </div>
+                                    </a>
                                 </div>
                             {% endfor %}
                         {% endif %}

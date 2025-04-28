@@ -126,40 +126,42 @@
             </div>
             <div class="products">
                 <div class="product">
-                    {% if products %}
-                        {% for product in products %}
+                    {% if page_obj %}
+                        {% for product in page_obj %}
                             <!-- 1 -->
                             <div class="product-cart">
-                                <div class="product_image">
-                                    {% load static %}
-                                    <img src="{% static 'media/' %}{{ product.category.name }}/{{ product.id }}/main.jpg" alt="{{ product.name }}">
-                                </div>
-                                <div class="cart">
-                                    <div class="cart-first">
-                                        <div class="product-name">
-                                            <h3>{{ product.name }}</h3>
-                                            <h4>{{ product.brand }}</h4>
+                                <a href="{% url 'product-page' product.id %}">
+                                    <div class="product_image">
+                                        {% load static %}
+                                        <img src="{% static 'media/' %}{{ product.category.name }}/{{ product.id }}/main.jpg" alt="{{ product.name }}">
+                                    </div>
+                                    <div class="cart">
+                                        <div class="cart-first">
+                                            <div class="product-name">
+                                                <h3>{{ product.name }}</h3>
+                                                <h4>{{ product.brand }}</h4>
+                                            </div>
+                                            <div class="rating">
+                                                <span class="star">&#9733</span>
+                                                <span class="star">&#9733</span>
+                                                <span class="star">&#9733</span>
+                                                <span class="star">&#9733</span>
+                                                <span class="star">&#9733</span>
+                                            </div>
                                         </div>
-                                        <div class="rating">
-                                            <span class="star">&#9733</span>
-                                            <span class="star">&#9733</span>
-                                            <span class="star">&#9733</span>
-                                            <span class="star">&#9733</span>
-                                            <span class="star">&#9733</span>
+                                        <div class="cart-second">
+                                            <h4>(4.1k) Customer Reviews</h4>
+                                        </div>
+                                        <div class="cart-third">
+                                            <div class="price">
+                                                <h3>{{ product.price_obj }} ₽</h3>
+                                            </div>
+                                            {% if product.stock < 10 %}
+                                                <h4>Almost Sold Out</h4>
+                                            {% endif %}
                                         </div>
                                     </div>
-                                    <div class="cart-second">
-                                        <h4>(4.1k) Customer Reviews</h4>
-                                    </div>
-                                    <div class="cart-third">
-                                        <div class="price">
-                                            <h3>{{ product.price_obj }} ₽</h3>
-                                        </div>
-                                        {% if product.stock < 10 %}
-                                            <h4>Almost Sold Out</h4>
-                                        {% endif %}
-                                    </div>
-                                </div>
+                                </a>
                             </div>
                         {% endfor %}
                     {% endif %}
