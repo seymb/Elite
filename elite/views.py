@@ -4,12 +4,14 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator
 
-
+# Проверка на целостность числа
+def is_integer(value):
+    return value % 1 == 0
 # Пример представления для главной страницы
 def index(request):
     products = Product.objects.all().order_by('-created_at')  # все товары, если категории нет
     return render(request, 'main.html', {'products':products[:6]})
-
+# Сортировка по категориям
 def catalog_view(request, category=None):
     if category:
         category_obj = Category.objects.filter(name__iexact=category).first()
@@ -24,8 +26,17 @@ def catalog_view(request, category=None):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
+    for product in page_obj:
+        prices = product.prices.all()
+        for price in prices:
+            new_volume = int(price.volume) if is_integer(price.volume) else price.volume
+            new_price = int(price.price) if is_integer(price.price) else price.price
+            if new_volume == 100:
+                product.main_price = new_price
+                break
+    
     return render(request, 'catalog.html', {'page_obj': page_obj})
-
+# Форма регистрации
 def register_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -39,7 +50,7 @@ def register_view(request):
         user.save()
         return redirect('home')
     return render(request, 'auth.html')
-
+# Форма входа
 def login_view(request):
     if request.method == 'POST':
         email = request.POST['email']
@@ -58,14 +69,11 @@ def login_view(request):
             return render(request, 'auth.html', {'error': 'Invalid credentials'})
 
     return render(request, 'auth.html')
-
+# Форма выхода
 def logout_view(request):
     logout(request)
     return redirect('home')
-
-def is_integer(value):
-    return value % 1 == 0
-
+# Форма страницы продукта
 def product(request, id=None):
     new_prices = []
     if id:
@@ -75,13 +83,14 @@ def product(request, id=None):
             original_price = price.price
 
             original_price = int(original_price) if is_integer(original_price) else original_price
-            price.discount = int(price.discount) if is_integer(price.discount) else price.discount
+            discount = int(price.discount) if is_integer(price.discount) else price.discount
+            volume = int(price.volume) if is_integer(price.volume) else price.volume
             if price.discount:
                 new_price = original_price - (original_price * price.discount / 100)
                 new_price = int(new_price) if is_integer(new_price) else new_price
-                new_prices.append({'original_price': original_price, 'discount_price': new_price, 'volume': price.volume, 'discount': price.discount})
+                new_prices.append({'original_price': original_price, 'discount_price': new_price, 'volume': volume, 'discount': discount})
             else:
-                new_prices.append({'original_price': original_price, 'discount_price': original_price, 'volume': price.volume, 'discount': 0})
+                new_prices.append({'original_price': original_price, 'discount_price': original_price, 'volume': volume, 'discount': 0})
 
     else:
         prod = None

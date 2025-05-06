@@ -7,7 +7,6 @@
         {% load static %}
         <link rel="stylesheet" type = text/css href="{% static 'catalog.css' %}">
         <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-        <link rel="icon" href="{% static 'Photo/Eliteporfume.ico' %}">
         <!-- Prata стиль текста -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,9 +152,11 @@
                                             <h4>(4.1k) Customer Reviews</h4>
                                         </div>
                                         <div class="cart-third">
-                                            <div class="price">
-                                                <h3>{{ product.price_obj }} ₽</h3>
-                                            </div>
+                                            {% if product.main_price %}
+                                                <div class="price">
+                                                    <h3>{{ product.main_price }} ₽</h3>
+                                                </div>
+                                            {% endif %}
                                             {% if product.stock < 10 %}
                                                 <h4>Almost Sold Out</h4>
                                             {% endif %}

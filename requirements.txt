@@ -1,6 +1,6 @@
 asgiref==3.8.1
-Django==5.0.9
-django-mssql-backend==2.8.1
+Django==5.0.9 #5.0.14 установил для поддержки mssql-django
+django-mssql-backend==2.8.1 #уже удален
 mssql-django==1.5
 pyodbc==5.1.0
 pytz==2024.2

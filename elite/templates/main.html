@@ -30,7 +30,7 @@
             <div class="navbar">
                 <a href="{% url 'catalog' 'Men' %}">Для мужчин</a>
                 <a href="{% url 'catalog' 'Women' %}">Для женщин
-                <a href="{% url 'product-page' %}">Для дома</a>
+                <a href="{% url 'catalog' 'Home' %}">Для дома</a>
                 {% if user.is_authenticated %}
                     <h4>{{ request.user.username }}, <a href="{% url 'logout' %}">Logout</a></h4> 
                 {% else %}
